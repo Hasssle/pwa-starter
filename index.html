@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="stylesheet" href="style.css" />
+
+    <meta name="description" content="A sample progressive web app" />
+    <meta name="theme-color" content="#FFF" />
+    <!-- iOS Support: Add iOS meta tags and icons -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="white" />
+    <meta name="apple-mobile-web-app-title" content="Progressive Web App" />
+    <link rel="apple-touch-icon" href="icons/icon-512x512.png" />
+    <!-- Favicon for web pages -->
+    <link rel="shortcut icon" href="icons/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="icons/favicon.ico" type="image/x-icon" />
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png" />
+    <title>PWA</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="header-row">
+        <h1 class="logo"><a href="/">LOGO</a></h1>
+        <div id="menuBtn" onclick="menuBtn(this)">
+          <div class="bar1"></div>
+          <div class="bar2"></div>
+          <div class="bar3"></div>
+        </div>
+      </div>
+      <nav>
+        <ul class="nav">
+          <li class="nav-item"><a href="/">Home</a></li>
+          <li class="nav-item"><a href="#">About</a></li>
+          <li class="nav-item"><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="container">
+      <section id="intro">
+        <h1>PWA Starter Kit</h1>
+        <p>
+          Progressive Web Apps are user experiences that have the reach of the web, and meet a certain level of quality.
+          This new level of quality allows Progressive Web Apps to earn a place on the user's home screen.
+        </p>
+        <div class="cards">
+          <div class="card">
+            <div class="card-header"><h3>Reliable</h3></div>
+            <div class="card-body">
+              <img
+                src="https://developers.google.com/web/progressive-web-apps/images/pwa-reliable.png"
+                alt="Reliable Graphic"
+              />
+              <p>Load instantly and never show the downasaur, even in uncertain network conditions.</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header"><h3>Fast</h3></div>
+            <div class="card-body">
+              <img
+                src="https://developers.google.com/web/progressive-web-apps/images/pwa-fast.png"
+                alt="Fast Graphic"
+              />
+              <p>Respond quickly to user interactions with silky smooth animations and no janky scrolling.</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header"><h3>Engaging</h3></div>
+            <div class="card-body">
+              <img
+                src="https://developers.google.com/web/progressive-web-apps/images/pwa-engaging.png"
+                alt="Engaging Graphic"
+              />
+              <p>Feel like a natural app on the device, with an immersive user experience.</p>
+            </div>
+          </div>
+        </div>
+        <button id="pwaInstall" class="btn">Install the PWA</button>
+      </section>
+    </main>
+    <footer>
+      <p>Footer Content</p>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+  <script>
+    // Code for install button to trigger PWA install
+    const installButton = document.getElementById("pwaInstall");
+    let deferredInstallPrompt = null;
+
+    window.addEventListener("beforeinstallprompt", saveBeforeInstallPromptEvent);
+    installButton.addEventListener("click", installPWA);
+
+    function saveBeforeInstallPromptEvent(evt) {
+      deferredInstallPrompt = evt;
+      installButton.removeAttribute("hidden");
+    }
+
+    function installPWA(evt) {
+      deferredInstallPrompt.prompt();
+      // Hide the install button, it can't be called twice.
+      evt.srcElement.setAttribute("hidden", true);
+    }
+  </script>
+</html>
