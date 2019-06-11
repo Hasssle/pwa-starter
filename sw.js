@@ -1,4 +1,4 @@
-var CACHE_NAME = "pwa-v0.1";
+var CACHE_NAME = "pwa-v0.2";
 var urlsToCache = [
   "/",
   "style.css",
