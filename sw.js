@@ -1,6 +1,7 @@
-var CACHE_NAME = "pwa-v0.2";
+var CACHE_NAME = "pwa-v0.3";
 var urlsToCache = [
   "/",
+  "index.html",
   "style.css",
   "script.js",
   "manifest.json",
@@ -14,7 +15,10 @@ var urlsToCache = [
   "icons/icon-152x152.png",
   "icons/icon-192x192.png",
   "icons/icon-384x384.png",
-  "icons/icon-512x512.png"
+  "icons/icon-512x512.png",
+  "btns/about.png",
+  "btns/contact.png",
+  "btns/home.png"
 ];
 
 self.addEventListener("install", event => {
