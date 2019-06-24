@@ -43,7 +43,7 @@ p {
   font-weight: 800;
   color: var(--main-color, black);
   background-color: var(--primary-color, white);
-  border: 2px solid var(--border-color, grey);
+  border: 2px solid var(--border-color, lightgrey);
   border-radius: 25px;
   padding: 10px;
   margin: 10px 0;
@@ -52,7 +52,7 @@ p {
 }
 .btn:hover {
   color: var(--main-color);
-  box-shadow: 2px 2px 4px var(--shadow-color, grey);
+  box-shadow: 2px 2px 4px var(--shadow-color, lightgrey);
 }
 .btn:focus {
   outline: 0;
@@ -61,12 +61,12 @@ p {
 .card {
   width: 100%;
   background-color: var(--primary-color, white);
-  border: 1px solid var(--border-color, grey);
+  box-shadow: 2px 2px 4px var(--shadow-color, lightgrey);
   border-radius: 3px;
   margin: 5px 0;
 }
 .card-header {
-  border-bottom: 1px solid var(--border-color, grey);
+  border-bottom: 1px solid var(--border-color, lightgrey);
   padding: 15px;
 }
 .card-body {
@@ -87,17 +87,16 @@ header {
 .header-row {
   display: flex;
   justify-content: space-between;
+  padding: 5px 10px;
 }
 h1.logo {
-  margin: 0 5px;
-  line-height: 54px;
-  display: inline;
+  display: flex;
+  align-items: center;
   font-size: 2.5em;
 }
 #menuBtn {
   display: inline-block;
   cursor: pointer;
-  margin: 5px;
 }
 #menuBtn:hover {
   filter: brightness(0.5);
@@ -164,26 +163,32 @@ nav#app-navbar {
 
 /* Desktop styles */
 @media only screen and (min-width: 768px) {
-  #menuBtn {
-    display: none;
-  }
   header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0 10px;
+  }
+  #menuBtn {
+    display: none;
+  }
+  div.header-row {
+    padding: 0;
   }
   nav#web-navbar {
     position: relative;
     overflow: initial;
-    width: auto;
-    background-color: var(--primary-color, white);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    background-color: var(--secondary-color, white);
   }
   a.nav-item {
-    display: inline;
+    width: auto;
   }
   h1.logo {
     font-size: 4em;
-    padding: 5px;
+    line-height: 64px;
   }
   .cards {
     flex-direction: row;
